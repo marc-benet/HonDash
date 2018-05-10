@@ -8,7 +8,7 @@
 # TODO:
 #	- delete archives to keep small the container small
 #	- setup caching (for apt, and pip)
-FROM ubuntu:18.04
+FROM resin/rpi-raspbian
 
 # configure locale
 RUN apt update -qq > /dev/null && apt install --yes --no-install-recommends \
@@ -21,8 +21,8 @@ ENV LANG="en_US.UTF-8" \
 # install system dependencies
 RUN apt update -qq > /dev/null && apt install --yes --no-install-recommends \
 	python3 python3-dev virtualenv make lsb-release pkg-config git build-essential \
-    libssl-dev tox
+    libssl-dev
 
 WORKDIR /app
 COPY . /app
-RUN make virtualenv
+#RUN make virtualenv
