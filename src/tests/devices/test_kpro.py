@@ -30,3 +30,18 @@ class TestKpro(TestCase):
         self.kpro.version = 4
         self.kpro.data0[5] = 100
         self.assertEqual(self.kpro.tps(), 37)
+
+    def test_ect_v4(self):
+        self.kpro.version = 4
+        self.kpro.data1[2] = 31
+        self.assertEqual(self.kpro.ect(), 90)
+
+    def test_ect_v3(self):
+        self.kpro.version = 3
+        self.kpro.data1[4] = 31
+        self.assertEqual(self.kpro.ect(), 90)
+
+    def test_ect_v2(self):
+        self.kpro.version = 2
+        self.kpro.data1[4] = 31
+        self.assertEqual(self.kpro.ect(), 90)

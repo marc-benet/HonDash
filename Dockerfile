@@ -21,8 +21,8 @@ ENV LANG="en_US.UTF-8" \
 # install system dependencies
 RUN apt update -qq > /dev/null && apt install --yes --no-install-recommends \
 	python3 python3-dev virtualenv make lsb-release pkg-config git build-essential \
-    libssl-dev
+    libssl-dev libffi-dev
 
 WORKDIR /app
 COPY . /app
-#RUN make virtualenv
+RUN make virtualenv

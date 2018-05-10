@@ -3,7 +3,7 @@ import threading
 import usb.core
 import usb.util
 from numpy import interp
-import pytemperature
+from pint import UnitRegistry
 
 # command 0x40
 KPRO2_ECU_TYPE = 12
@@ -265,13 +265,18 @@ class Kpro:
                       30, 28, 26, 26, 24, 24, 23, 21, 21, 19, 19, 17, 15, 15, 14, 14, 12, 10, 10, 8, 8, 6, 5, 3, 1, 0,
                       -4, -5, -7, -9, -11, -13, -14, -18, -20, -22, -23, -25, -27, -31, -32, -34, -38, -40, -40, -40,
                       -40]
+        ureg = UnitRegistry()
+        Q_ = ureg.Quantity
         try:
             if self.version == 2:
-                return pytemperature.f2c(fahrenheit[self.data1[KPRO2_ECT]])
+                temp = Q_(fahrenheit[self.data1[KPRO2_ECT]], ureg.degF)
+                return int(round(temp.to('degC').magnitude))
             elif self.version == 3:
-                return pytemperature.f2c(fahrenheit[self.data1[KPRO3_ECT]])
+                temp = Q_(fahrenheit[self.data1[KPRO3_ECT]], ureg.degF)
+                return int(round(temp.to('degC').magnitude))
             elif self.version == 4:
-                return pytemperature.f2c(fahrenheit[self.data1[KPRO4_ECT]])
+                temp = Q_(fahrenheit[self.data1[KPRO4_ECT]], ureg.degF)
+                return int(round(temp.to('degC').magnitude))
         except IndexError:
             return 0
 
@@ -289,13 +294,18 @@ class Kpro:
                       30, 28, 26, 26, 24, 24, 23, 21, 21, 19, 19, 17, 15, 15, 14, 14, 12, 10, 10, 8, 8, 6, 5, 3, 1, 0,
                       -4, -5, -7, -9, -11, -13, -14, -18, -20, -22, -23, -25, -27, -31, -32, -34, -38, -40, -40, -40,
                       -40]
+        ureg = UnitRegistry()
+        Q_ = ureg.Quantity
         try:
             if self.version == 2:
-                return pytemperature.f2c(fahrenheit[self.data1[KPRO2_IAT]])
+                temp = Q_(fahrenheit[self.data1[KPRO2_IAT]], ureg.degF)
+                return int(round(temp.to('degC').magnitude))
             elif self.version == 3:
-                return pytemperature.f2c(fahrenheit[self.data1[KPRO3_IAT]])
+                temp = Q_(fahrenheit[self.data1[KPRO3_IAT]], ureg.degF)
+                return int(round(temp.to('degC').magnitude))
             elif self.version == 4:
-                return pytemperature.f2c(fahrenheit[self.data1[KPRO4_IAT]])
+                temp = Q_(fahrenheit[self.data1[KPRO4_IAT]], ureg.degF)
+                return int(round(temp.to('degC').magnitude))
         except IndexError:
             return 0
 
