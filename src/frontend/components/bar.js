@@ -68,4 +68,8 @@ class Bar {
             text: value + this.textEnding,
         });
     }
+
+    setMax(max) {
+        this.maxValue = max;
+    }
 };
