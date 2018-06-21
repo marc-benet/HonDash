@@ -24,7 +24,7 @@ connection.onopen = function (session) {
        gauge4.refresh(args[0]["an0"] || 0);
        gauge5.refresh(args[0]["an1"] || 0);
        gauge6.refresh(args[0]["bat"] || 0);
-       gauge7.refresh(args[0]["cam"] || 0);
+       gauge7.refresh(args[0]["eth"] || 0);
        gauge8.refresh(args[0]["o2"] || 0);
        gauge9.refresh(args[0]["map"] || 0);
        gauge10.refresh(args[0]["tps"] || 0);

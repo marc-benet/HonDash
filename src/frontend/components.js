@@ -165,37 +165,37 @@ var gauge6 = new JustGage(Object.assign({}, gaugeDefaults, {
 
 var gauge7 = new JustGage(Object.assign({}, gaugeDefaults, {
     id: "gauge7",
-    max: 150,
-    label: "CAM",
+    max: 100,
+    label: "ETH",
     customSectors: {
         length: true,
         ranges: [{
         color : "#46877f",
             lo : 0,
-            hi : 50
+            hi : 100
         }]
     }
 }));
 
 var gauge8 = new JustGage(Object.assign({}, gaugeDefaults, {
     id: "gauge8",
-    max: 30,
+    max: 2,
     decimals: 1,
-    label: "AFR",
+    label: "A/F",
     customSectors: {
         length: true,
         ranges: [{
             color : "#cc2c24",
             lo : 0,
-            hi : 12.0
+            hi : 0.75
         },{
         color : "#46877f",
-            lo : 12.0,
-            hi : 16.0
+            lo : 0.75,
+            hi : 1.05
         },{
         color : "#cc2c24",
-            lo : 16.0,
-            hi : 30
+            lo : 1.05,
+            hi : 2
         }]
     }
 }));
