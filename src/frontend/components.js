@@ -3,7 +3,7 @@ var bar1 = new Bar({
     id: "bar1",
     isVertical: true,
     fillColor: "#d64d8a",
-    maxValue: 9500,
+    maxValue: 8200,
     textEnding: "",
     textSize: 60
 });

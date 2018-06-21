@@ -14,20 +14,20 @@
   "map": {
     "unit": "bar"
   },
-  "an0": {
-    "unit": "bar",
-    "formula": "ebay_150_psi"
-  },
   "an1": {
-    "unit": "psi",
+    "unit": "bar",
     "formula": "autometer_2246"
   },
   "an2": {
-    "unit": "celsius",
-    "formula": "vdo_323_057"
+    "unit": "bar",
+    "formula": "autometer_2246"
   },
   "an3": {
+    "unit": "celsius",
+    "formula": "bosch_0280130039_0280130026"
+  },
+  "an4": {
     "unit": "per cent",
-    "formula": "civic_eg_fuel_tank"
+    "formula": "s2000_fuel_tank"
   }
 }
