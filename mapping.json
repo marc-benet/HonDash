@@ -24,7 +24,7 @@
   },
   "an3": {
     "unit": "celsius",
-    "formula": "bosch_0280130039_0280130026"
+    "formula": "aem_30_20126"
   },
   "an4": {
     "unit": "per cent",
