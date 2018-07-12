@@ -33,6 +33,16 @@ connection.onopen = function (session) {
    }
 
    session.subscribe('com.app.idea', onevent1);
+
+   session.call("com.app.idea.slowsquare", [23]).then(
+               function (res) {
+                  console.log("slow square result:", res);
+               },
+               function (err) {
+                  console.log("error:", err);
+               }
+            );
+
 };
 
 connection.open();

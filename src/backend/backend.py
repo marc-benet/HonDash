@@ -1,11 +1,17 @@
 from time import sleep
-from autobahn_sync import publish, run
+from autobahn_sync import publish, run, register
 
 from devices.kpro import Kpro
 from devices.time import Time
 from devices.odometer import Odometer
 
 from mapper import Mapper
+
+
+@register(u'com.app.idea.slowsquare')
+def slowsquare(x):
+    print("slowsquare() called with {}".format(x))
+    return x * x
 
 
 while True:
